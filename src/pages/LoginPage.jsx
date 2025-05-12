@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const LoginPage = ({ onLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false); // ✅ 추가
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -26,13 +27,25 @@ const LoginPage = ({ onLogin }) => {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div>
+        <div style={{ display: 'flex' }}>
           <label>비밀번호:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <input
+              type={showPassword ? 'text' : 'password'} // ✅ 조건부 타입
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword((prev) => !prev)}
+              style={{
+                marginLeft: '0.5rem',
+                cursor: 'pointer',
+              }}
+            >
+              {showPassword ? '숨기기' : '보기'}
+            </button>
+          </div>
         </div>
         {error && <p className="error">{error}</p>}
         <button type="submit">로그인</button>
@@ -41,4 +54,4 @@ const LoginPage = ({ onLogin }) => {
   );
 };
 
-export default LoginPage; 
+export default LoginPage;

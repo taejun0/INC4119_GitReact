@@ -1,23 +1,27 @@
-import React from "react";
-import FeatureCard from "../components/FeatureCard";
+import React from 'react';
+import FeatureCard from '../components/FeatureCard';
 
 const HomePage = () => {
   const features = [
     {
-      title: "소개",
-      description: "제 소개입니다.",
+      title: '소개',
+      description: '제 소개입니다.',
+      icon: '👋',
     },
     {
-      title: "프로젝트",
-      description: "제가 만든 프로젝트들 입니다.",
+      title: '프로젝트',
+      description: '제가 만든 프로젝트들 입니다.',
+      icon: '💻',
     },
     {
-      title: "연락처",
-      description: "저에게 연락하는 방법입니다.",
+      title: '연락처',
+      description: '저에게 연락하는 방법입니다.',
+      icon: '📞',
     },
     {
-      title: "여러분이 원하는",
-      description: "항목을 새로 만들어 보세요.",
+      title: '여러분이 원하는',
+      description: '항목을 새로 만들어 보세요.',
+      icon: '✨',
     },
   ];
 
@@ -31,6 +35,7 @@ const HomePage = () => {
             key={index}
             title={feature.title}
             description={feature.description}
+            icon={feature.icon}
           />
         ))}
       </div>
